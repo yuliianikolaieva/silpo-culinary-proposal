@@ -35,6 +35,16 @@
       .proposal{padding:9px;border-radius:8px}.proposal .quote{margin-bottom:6px!important}
       .placements{grid-template-columns:repeat(6,1fr);gap:4px}.placement{border-radius:5px}.placement img{height:22mm;object-fit:cover}.placement.modal img{height:22mm;object-fit:contain}.placement figcaption{display:none}
       .foot{margin-top:5px;padding-top:5px;font-size:5.6pt}.no-break{break-inside:auto}
+      /* Keep the complete GMV forecast on page 1, before category requirements. */
+      main > section:nth-of-type(2){break-inside:avoid}
+      main > section:nth-of-type(2) .grid{gap:4px}
+      main > section:nth-of-type(2) .card{padding:4px}
+      main > section:nth-of-type(2) .value{font-size:12pt}
+      main > section:nth-of-type(2) .table{margin-top:5px!important}
+      main > section:nth-of-type(2) th,main > section:nth-of-type(2) td{padding:.5px 2px;font-size:5.1pt;line-height:1.05}
+      main > section:nth-of-type(2) th{font-size:4.9pt}
+      main > section:nth-of-type(2) .small{margin-top:2px;font-size:5.5pt}
+      main > section:nth-of-type(3){break-inside:avoid}
       /* Page 1 finishes with category requirements; page 2 starts with the offer. */
       main > section:nth-of-type(3){break-after:page}
       main > section:nth-of-type(4){break-before:auto}
