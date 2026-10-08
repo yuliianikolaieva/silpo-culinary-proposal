@@ -29,13 +29,15 @@
       .section{margin-top:6px}.section h2{font-size:12pt;margin:1px 0 4px}.eyebrow{font-size:7pt}
       .decision{padding:8px;gap:10px}.decision h2{font-size:12pt}.quote{padding:2px 0 2px 8px}
       .grid{gap:6px}.card{padding:6px}.label{font-size:6pt}.value{font-size:14pt}.sub{font-size:6.3pt;line-height:1.2}
-      th,td{padding:2px 3px;font-size:6.1pt;line-height:1.15}th{font-size:5.7pt}
+      th,td{padding:1px 2px;font-size:5.6pt;line-height:1.12}th{font-size:5.3pt}
       .table{border-radius:6px}.timeline{border-radius:6px}.timeline .step{padding:5px;min-height:52px}.step strong{font-size:9pt}.step p{margin:2px 0 0;font-size:6.2pt}.n{font-size:6pt}
       ul{margin:3px 0 0;padding-left:11px}li{margin:1px 0}.small{margin:4px 0 0;font-size:6pt;line-height:1.2}
       .proposal{padding:9px;border-radius:8px}.proposal .quote{margin-bottom:6px!important}
       .placements{grid-template-columns:repeat(6,1fr);gap:4px}.placement{border-radius:5px}.placement img{height:22mm;object-fit:cover}.placement.modal img{height:22mm;object-fit:contain}.placement figcaption{display:none}
       .foot{margin-top:5px;padding-top:5px;font-size:5.6pt}.no-break{break-inside:auto}
-      main > section:nth-of-type(4){break-before:page}
+      /* Page 1 finishes with category requirements; page 2 starts with the offer. */
+      main > section:nth-of-type(3){break-after:page}
+      main > section:nth-of-type(4){break-before:auto}
     }
   </style>
 </head>
