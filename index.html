@@ -40,7 +40,11 @@
       main > section:nth-of-type(2){break-inside:avoid}
       main > section:nth-of-type(2) .grid{gap:4px}
       main > section:nth-of-type(2) .card{padding:4px}
-      main > section:nth-of-type(2) .value{font-size:12pt}
+      /* The four forecast KPIs stay as one compact horizontal strip. */
+      main > section:nth-of-type(2) .four .card{display:grid;grid-template-columns:auto auto 1fr;align-items:center;column-gap:4px}
+      main > section:nth-of-type(2) .four .label{white-space:nowrap}
+      main > section:nth-of-type(2) .four .value{margin:0;font-size:10pt;white-space:nowrap}
+      main > section:nth-of-type(2) .four .sub{font-size:5.7pt;line-height:1.1}
       main > section:nth-of-type(2) .table{margin-top:5px!important}
       main > section:nth-of-type(2) th,main > section:nth-of-type(2) td{padding:.5px 2px;font-size:5.1pt;line-height:1.05}
       main > section:nth-of-type(2) th{font-size:4.9pt}
