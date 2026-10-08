@@ -45,11 +45,13 @@
       main > section:nth-of-type(2) th{font-size:4.9pt}
       main > section:nth-of-type(2) .small{margin-top:2px;font-size:5.5pt}
       main > section:nth-of-type(3){break-inside:avoid}
-      /* Page 1 finishes with category requirements; page 2 starts with the offer. */
+      /* Page 1 finishes with category requirements; page 2 is the offer. */
       main > section:nth-of-type(3){break-after:page}
       main > section:nth-of-type(4){break-before:auto}
-      /* Page 3 is dedicated to Silpo value, investments and launch support. */
-      main > section:nth-of-type(5){break-before:page}
+      main > section:nth-of-type(4){break-after:page}
+      /* Page 3: Silpo value and why Bolt couriers. Page 4: placement examples. */
+      main > section:nth-of-type(5){break-before:auto}
+      main > section:nth-of-type(7){break-before:page}
     }
   </style>
 </head>
@@ -61,7 +63,7 @@
         <h1>Пропозиція запуску<br>«Готові страви і кулінарія»</h1>
         <p class="lead">12-місячний план для 100 локацій: керований попит на кур’єрах Bolt, прозора умова зниження комісії Dark Kitchen та захист прибутковості категорії.</p>
       </div>
-      <button class="print" onclick="window.print()">Завантажити PDF · 3 сторінки</button>
+      <button class="print" onclick="window.print()">Завантажити PDF · 4 сторінки</button>
     </header>
 
     <section class="section decision no-break">
@@ -166,6 +168,16 @@
       </div>
     </section>
 
+    <section class="section no-break">
+      <div class="eyebrow">Чому Bolt couriers</div>
+      <h2>Попит, контроль delivery experience і масштабування на одній платформі</h2>
+      <div class="grid three">
+        <article class="card"><b>Керуємо попитом у launch.</b><p class="sub">Bolt може фокусувати маркетинговий інвентар, Plus і free delivery саме на новій категорії, а не очікувати органічний попит.</p></article>
+        <article class="card"><b>Контролюємо виконання замовлення.</b><p class="sub">Маршрут Bolt дозволяє керувати courier allocation, ETA та якістю delivery experience — критично для гарячих і ready-to-eat страв.</p></article>
+        <article class="card"><b>Supply уже достатній для тесту.</b><p class="sub">План не вимагає масштабування мережі до перевірки попиту: 100 локацій, 80 SKU на старті та чіткі пороги перед розширенням.</p></article>
+      </div>
+    </section>
+
     <section class="section">
       <div class="eyebrow">Приклади placement у Bolt Food</div>
       <h2>Як launch, free delivery та промо виглядають для клієнта</h2>
@@ -178,16 +190,6 @@
         <figure class="placement"><img src="assets/social-launch.png" alt="Приклад social placement launch кампанії"><figcaption><b>Social launch</b>Підтримка запуску через зовнішні канали та контент партнерів.</figcaption></figure>
       </div>
       <p class="small">Приклади демонструють доступні формати Bolt Food на кейсах LOKO та VARUS. Креативи, тексти, аудиторії та календар для Сільпо погоджуються окремо перед launch.</p>
-    </section>
-
-    <section class="section no-break">
-      <div class="eyebrow">Чому Bolt couriers</div>
-      <h2>Попит, контроль delivery experience і масштабування на одній платформі</h2>
-      <div class="grid three">
-        <article class="card"><b>Керуємо попитом у launch.</b><p class="sub">Bolt може фокусувати маркетинговий інвентар, Plus і free delivery саме на новій категорії, а не очікувати органічний попит.</p></article>
-        <article class="card"><b>Контролюємо виконання замовлення.</b><p class="sub">Маршрут Bolt дозволяє керувати courier allocation, ETA та якістю delivery experience — критично для гарячих і ready-to-eat страв.</p></article>
-        <article class="card"><b>Supply уже достатній для тесту.</b><p class="sub">План не вимагає масштабування мережі до перевірки попиту: 100 локацій, 80 SKU на старті та чіткі пороги перед розширенням.</p></article>
-      </div>
     </section>
 
     <footer class="foot">
