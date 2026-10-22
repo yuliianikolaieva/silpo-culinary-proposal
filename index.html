@@ -19,12 +19,14 @@
     .timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line);border-radius:12px;overflow:hidden}.step{padding:14px;border-right:1px solid var(--line);min-height:130px}.step:last-child{border-right:0}.step strong{display:block;font-size:16px;margin:3px 0}.step p{margin:5px 0 0;color:var(--muted);font-size:12px}.n{color:var(--green);font-weight:850;font-size:11px;letter-spacing:.08em}
     .placements{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.placement{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff}.placement img{width:100%;height:240px;object-fit:cover;object-position:top;display:block;background:#f4f6f4}.placement.modal img{object-fit:contain;height:300px}.placement figcaption{padding:9px 10px;color:var(--muted);font-size:11px;line-height:1.35}.placement b{display:block;color:var(--ink);font-size:12px;margin-bottom:2px}
     ul{margin:8px 0 0;padding-left:18px}li{margin:4px 0}.small{font-size:11px;color:var(--muted);line-height:1.4}.foot{border-top:1px solid var(--line);margin-top:24px;padding-top:13px;display:flex;justify-content:space-between;gap:20px;color:var(--muted);font-size:10px}
-    @media(max-width:760px){.page{width:100%;margin:0;border:0;border-radius:0;padding:24px 18px}.top,.decision{display:block}.print{margin-top:16px}.three,.four,.two,.timeline,.placements{grid-template-columns:1fr}.step{border-right:0;border-bottom:1px solid var(--line);min-height:auto}.step:last-child{border-bottom:0}h1{font-size:29px}}
+    .app-layout{display:grid;grid-template-columns:174px minmax(0,1fr);gap:26px;margin-top:26px}.sidebar{position:sticky;top:18px;align-self:start;border:1px solid var(--line);border-radius:14px;padding:9px;background:#f8faf8}.nav-title{padding:7px 9px;color:var(--muted);font-size:10px;font-weight:800;letter-spacing:.07em;text-transform:uppercase}.scenario-tab{display:block;width:100%;border:0;border-radius:9px;padding:11px 10px;background:transparent;color:var(--ink);font:inherit;font-weight:800;text-align:left;cursor:pointer}.scenario-tab small{display:block;margin-top:2px;color:var(--muted);font-size:10px;font-weight:600}.scenario-tab.active{background:var(--green);color:#fff}.scenario-tab.active small{color:#dcf6e7}.scenario{display:none}.scenario.active{display:block}.scenario .section:first-child{margin-top:0}.scenario-intro{margin-bottom:16px}.shared-note{margin-top:16px;border:1px solid var(--line);border-radius:12px;padding:13px 15px;background:#f8faf8;color:var(--muted);font-size:12px}
+    @media(max-width:760px){.page{width:100%;margin:0;border:0;border-radius:0;padding:24px 18px}.top,.decision{display:block}.print{margin-top:16px}.app-layout{display:block;margin-top:18px}.sidebar{position:static;display:flex;gap:6px;margin-bottom:18px}.nav-title{display:none}.scenario-tab{flex:1;font-size:12px}.three,.four,.two,.timeline,.placements{grid-template-columns:1fr}.step{border-right:0;border-bottom:1px solid var(--line);min-height:auto}.step:last-child{border-bottom:0}h1{font-size:29px}}
     @media print{
       @page{size:A4 landscape;margin:6mm}
       body{background:#fff;font-size:7pt;line-height:1.25}
       .page{width:100%;margin:0;padding:0;border:0;border-radius:0}
-      .top,.print{display:none}
+      .top,.print,.sidebar{display:none}
+      .app-layout{display:block;margin:0}.scenario.hidden{display:none!important}
       h1{font-size:20pt}.top{padding-bottom:6px}.brand{font-size:8pt}.lead{font-size:8pt}
       .section{margin-top:6px}.section h2{font-size:12pt;margin:1px 0 4px}.eyebrow{font-size:7pt}
       /* The PDF starts directly with the forecast and category requirements. */
@@ -70,7 +72,13 @@
       </div>
       <button class="print" onclick="window.print()">Завантажити PDF · 4 сторінки</button>
     </header>
-
+    <div class="app-layout">
+      <aside class="sidebar" aria-label="Навігація сценаріями">
+        <div class="nav-title">Сценарії співпраці</div>
+        <button class="scenario-tab active" type="button" data-scenario="one">Сценарій 1<small>Launch · €407.5k GMV</small></button>
+        <button class="scenario-tab" type="button" data-scenario="two">Сценарій 2<small>Scale · €852.8k GMV</small></button>
+      </aside>
+      <div class="scenario-content">
     <section class="section decision no-break">
       <div>
         <div class="eyebrow">Напрямок співпраці</div>
@@ -80,6 +88,7 @@
       <div class="quote">Наша спільна ціль — виростити стабільну категорію ready meals із повторним попитом, не створюючи штучний обсяг ціною довгострокової прибутковості.</div>
     </section>
 
+    <div class="scenario scenario-one active">
     <section class="section no-break">
       <div class="eyebrow">Сценарій 1 · план товарообігу та вимоги до категорії</div>
       <h2>100 локацій · 12 місяців</h2>
@@ -196,11 +205,77 @@
       </div>
       <p class="small">Приклади демонструють доступні формати Bolt Food на кейсах LOKO та VARUS. Креативи, тексти, аудиторії та календар для Сільпо погоджуються окремо перед launch.</p>
     </section>
+    </div>
 
+    <div class="scenario scenario-two">
+      <section class="section proposal no-break">
+        <div class="eyebrow">Сценарій 2 · комерційна пропозиція</div>
+        <h2>Scale: спільна ставка 16% після підтвердження €65k Stores GMV / місяць</h2>
+        <div class="grid three scenario-intro">
+          <article class="card green"><div class="label">Stores товарообіг · ×2</div><div class="value">€852.8k</div><div class="sub">₴42.64m · річний GMV за сценарієм масштабування</div></article>
+          <article class="card"><div class="label">Stores замовлення · ×2</div><div class="value">61,220</div><div class="sub">від базового плану 30,610 orders</div></article>
+          <article class="card"><div class="label">Умова для shared rate</div><div class="value">€65k / міс.</div><div class="sub">Stores GMV після виходу на scale</div></article>
+        </div>
+        <div class="quote" style="margin:0 0 14px"><b>16% — мінімальна спільна ставка для DK, resto та stores.</b> Bolt погоджується на неї виключно через силу бренду Сільпо та віру в потенціал категорії. Кулінарія за своєю операційною моделлю ближча до restaurant delivery, тому така ставка є суттєво нижчою за стандартну економіку кур’єрської платформи.</div>
+        <div class="timeline">
+          <div class="step"><div class="n">Поріг scale</div><strong>€65k Stores GMV / міс.</strong><p>Після стабільного досягнення порогу активується єдина ставка для всіх вертикалей.</p></div>
+          <div class="step"><div class="n">Спільна ставка</div><strong>16% DK + resto + stores</strong><p>Одна комісія для всієї співпраці; без окремих DF та free-delivery субсидій.</p></div>
+          <div class="step"><div class="n">Bolt Plus</div><strong>+2 в.п. на Plus orders</strong><p>Програма підвищує чек, частоту та повторні замовлення; додаткові 2% застосовуються лише до продажів через Bolt Plus.</p></div>
+          <div class="step"><div class="n">Якщо продажі падають</div><strong>Повернення до Scenario 1</strong><p>DK/resto: 20%; stores: 12%. Сторони переглядають recovery plan та умови нового scale.</p></div>
+        </div>
+        <div class="grid three" style="margin-top:12px">
+          <article class="card green"><div class="label">Gross saving · DK/resto</div><div class="value">€95.7k / ₴4.78m</div><div class="sub">9 в.п. (25% → 16%) на €1.063m річного GMV DK + resto.</div></article>
+          <article class="card"><div class="label">Зміна комісії · stores</div><div class="value">−€34.1k / −₴1.71m</div><div class="sub">+4 в.п. (12% → 16%) на €852.8k Stores GMV — необхідна складова спільної ставки.</div></article>
+          <article class="card green"><div class="label">Net saving Сільпо</div><div class="value">€61.6k / ₴3.08m</div><div class="sub">Порівняно з чинною базою 25% DK/resto + 12% stores; за незмінного GMV усіх вертикалей.</div></article>
+        </div>
+        <div class="callout" style="margin-top:12px;padding:14px 16px;border-radius:12px;background:var(--amber-bg);border:1px solid #ecd9ab"><b>Майбутня опція для інвестицій.</b>&nbsp; Коли загальний GMV усіх вертикалей Bolt Food досягне <b>€200k / місяць</b>, повертаємося до обговорення інвестицій у Bolt Plus, free delivery та інші demand-механіки. До цього моменту shared rate не включає DF campaign чи субсидію Bolt Plus.</div>
+      </section>
+
+      <section class="section no-break">
+        <div class="eyebrow">Цінність для Сільпо</div>
+        <h2>Проста scale-модель, маркетингова підтримка та умова розвитку портфеля</h2>
+        <div class="grid three">
+          <article class="card green"><div class="label">Єдина логіка комісії</div><div class="value">16%</div><div class="sub">Одна ставка для DK, resto та stores після €65k Stores GMV / місяць — зрозуміла модель для планування P&amp;L.</div></article>
+          <article class="card"><div class="label">Маркетинг Bolt</div><div class="value">€21.2k</div><div class="sub">€10.0k public launch cash + €11.2k in-kind inventory: banner, push/email, hero та modal. DF і free delivery не входять у цей пакет.</div></article>
+          <article class="card"><div class="label">Портфельна умова</div><div class="value">€200k / міс.</div><div class="sub">Загальний GMV усіх вертикалей — точка для повернення до фінансованих demand-інструментів.</div></article>
+        </div>
+        <div class="table" style="margin-top:12px">
+          <table><thead><tr><th>Інструмент / умова</th><th>Для чого</th><th class="num">Інвестиція / ставка</th><th>Статус у Scenario 2</th></tr></thead><tbody>
+            <tr><td><b>Public launch</b></td><td>Видимість нового формату та формування першого cohort клієнтів.</td><td class="num">Bolt: €10.0k cash</td><td>Включено</td></tr>
+            <tr><td><b>In-app inventory</b></td><td>Banner, push/email, hero і modal для підтримки launch та ключових приводів.</td><td class="num">Bolt: €11.2k in-kind</td><td>Включено</td></tr>
+            <tr><td><b>DF campaign / free delivery</b></td><td>Субсидія delivery price для стимулу конверсії та repeat.</td><td class="num">—</td><td>Не включено до €200k total GMV / міс.</td></tr>
+            <tr><td><b>Bolt Plus</b></td><td>Вищий чек, частота та повторні замовлення у Plus-аудиторії.</td><td class="num">+2 в.п. лише на Plus GMV</td><td>Доступний без субсидії Bolt</td></tr>
+            <tr class="hi"><td><b>E-zoo + «Біла ромашка»</b></td><td>Додаткова активація портфеля Сільпо в Bolt Food.</td><td class="num">Комісія ≥13%</td><td>Потрібне підтвердження активації</td></tr>
+          </tbody></table>
+        </div>
+      </section>
+
+      <section class="section no-break">
+        <div class="eyebrow">Чому Bolt couriers</div>
+        <h2>Спільна ставка працює лише за спільного керування попитом і delivery experience</h2>
+        <div class="grid three">
+          <article class="card"><b>Масштабуємо попит на всіх вертикалях.</b><p class="sub">Поріг €200k оцінює весь BF-бізнес Сільпо, а не окрему точку. Це дає підставу інвестувати у demand-механіки, які одночасно посилюють DK, resto та stores.</p></article>
+          <article class="card"><b>Контролюємо якість ready-meals delivery.</b><p class="sub">Bolt керує courier allocation, ETA та delivery experience — критично для кулінарії, де якість продукту прямо залежить від швидкості доставки.</p></article>
+          <article class="card"><b>Створюємо сталу економіку.</b><p class="sub">16% — компромісна ставка для сильного бренду, але без додаткових delivery-субсидій. Інвестиції повертаються лише після масштабу, який їх окуповує.</p></article>
+        </div>
+      </section>
+    </div>
+      </div>
+    </div>
     <footer class="foot">
       <span>Commercial proposal · prepared for Silpo · 7 Oct 2026</span>
       <span>Assumptions: 100 locations, €13 commission AOV, 12-month rollout. Final terms subject to contract and legal review.</span>
     </footer>
   </main>
+  <script>
+    const tabs = document.querySelectorAll('.scenario-tab');
+    const scenarios = document.querySelectorAll('.scenario');
+    tabs.forEach((tab) => tab.addEventListener('click', () => {
+      const target = tab.dataset.scenario;
+      tabs.forEach((item) => item.classList.toggle('active', item === tab));
+      scenarios.forEach((item) => item.classList.toggle('active', item.classList.contains(`scenario-${target}`)));
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    }));
+  </script>
 </body>
 </html>
