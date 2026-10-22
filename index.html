@@ -279,12 +279,13 @@
   <script>
     const tabs = document.querySelectorAll('.scenario-tab');
     const scenarios = document.querySelectorAll('.scenario');
-    tabs.forEach((tab) => tab.addEventListener('click', () => {
-      const target = tab.dataset.scenario;
-      tabs.forEach((item) => item.classList.toggle('active', item === tab));
+    const selectScenario = (target, scroll) => {
+      tabs.forEach((item) => item.classList.toggle('active', item.dataset.scenario === target));
       scenarios.forEach((item) => item.classList.toggle('active', item.classList.contains(`scenario-${target}`)));
-      window.scrollTo({top: 0, behavior: 'smooth'});
-    }));
+      if (scroll) window.scrollTo({top: 0, behavior: 'smooth'});
+    };
+    tabs.forEach((tab) => tab.addEventListener('click', () => selectScenario(tab.dataset.scenario, true)));
+    if (new URLSearchParams(window.location.search).get('scenario') === '2') selectScenario('two', false);
   </script>
 </body>
 </html>
